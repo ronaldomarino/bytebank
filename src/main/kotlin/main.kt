@@ -1,17 +1,45 @@
 fun main(){
     println("Bem vindo ao ByteBank")
 
-    val titular = "Ronaldo"
-    val conta = 1000
-    var saldo = 0.0
+    for (i in 1..3) {
+        val titular = "Ronaldo $i"
+        val conta = 1000 + i
+        var saldo = 120 * i / 3
 
-    saldo = 100.0
+        print("Titular: $titular")
+        print(" - Conta: $conta")
+        println(" - Saldo: $saldo;")
+    }
 
-    saldo -= 100.1
+    for (i in 5 downTo 1 step 2) {
+        val titular = "Ronaldo Ms $i"
+        val conta = 1000 + i
+        var saldo = 120 * i / 3
 
-    println("Titular: $titular")
-    println("Conta: $conta")
-    println("Saldo: $saldo")
+        print("Titular: $titular")
+        print(" - Conta: $conta")
+        println(" - Saldo: $saldo;")
+    }
+
+    println("")
+
+    var i = 1
+    while(i <= 5) {
+        val titular = "Ronaldo $i"
+        val conta = 1000 + i
+        var saldo = 120 * i / 3
+
+        print("Titular: $titular")
+        print(" - Conta: $conta")
+        println(" - Saldo: $saldo;")
+        i++
+    }
+
+    //testaCondicoes(saldo)
+
+}
+
+fun testaCondicoes(saldo: Double){
 
     if (saldo > 0.0){
         println("Saldo é positivo")
