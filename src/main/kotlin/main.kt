@@ -1,14 +1,10 @@
 fun main() {
     println("Bem vindo ao ByteBank")
 
-    var contaRonaldo = Conta()
-    contaRonaldo.titular = "Ronaldo"
-    contaRonaldo.numero = 1000
+    var contaRonaldo = Conta(titular = "Ronaldo", numero = 1000)
     contaRonaldo.deposita(360.0)
 
-    var contaDani = Conta()
-    contaDani.titular = "Daniela"
-    contaDani.numero = 1001
+    var contaDani = Conta(numero = 1001, titular = "Daniela")
     contaDani.deposita(520.0)
 
     println(contaRonaldo.titular)
@@ -49,9 +45,7 @@ fun main() {
 
 }
 
-class Conta() {
-    var titular = ""
-    var numero = 0
+class Conta(var titular: String, val numero: Int) {
     var saldo = 0.0
         private set
 
@@ -77,7 +71,6 @@ class Conta() {
     }
 
 
-
 }
 
 fun testaCopiasEReferencias() {
@@ -88,17 +81,16 @@ fun testaCopiasEReferencias() {
     println("numeroX $numeroX")
     println("numeroY $numeroY")
 
-    val contaRonaldo = Conta()
-    contaRonaldo.titular = "Ronaldo"
-    var contaDani = Conta()
-    contaDani.titular = "Dani"
-    contaRonaldo.titular = "Ronaldo"
+    val contaJosefus = Conta("Josefus", 1002)
+    var contaJulieta = Conta("Julieta", 1003)
+    contaJulieta.titular = "Julieta"
+    contaJosefus.titular = "Ronaldo"
 
-    println("Titular conta Ronaldo: ${contaRonaldo.titular}")
-    println("Tsitular conta Dani: ${contaDani.titular}")
+    println("Titular conta Josefus: ${contaJosefus.titular}")
+    println("Tsitular conta Julieta: ${contaJulieta.titular}")
 
-    println(contaRonaldo)
-    println(contaDani)
+    println(contaJosefus)
+    println(contaJulieta)
 }
 
 fun testaRepeticao() {
