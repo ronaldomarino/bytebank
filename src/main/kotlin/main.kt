@@ -4,39 +4,39 @@ fun main() {
     var contaRonaldo = Conta()
     contaRonaldo.titular = "Ronaldo"
     contaRonaldo.numero = 1000
-    contaRonaldo.setSaldo(120.0)
+    contaRonaldo.deposita(360.0)
 
     var contaDani = Conta()
     contaDani.titular = "Daniela"
     contaDani.numero = 1001
-    contaDani.setSaldo(150.0)
+    contaDani.deposita(520.0)
 
     println(contaRonaldo.titular)
     println(contaRonaldo.numero)
-    println(contaRonaldo.getSaldo())
+    println(contaRonaldo.saldo)
 
     println(contaDani.titular)
     println(contaDani.numero)
-    println(contaDani.getSaldo())
+    println(contaDani.saldo)
 
     //testaRepeticao()
     //testaCondicoes(saldo)
 
     println("Depositando na conta do Ronaldo")
     contaRonaldo.deposita(25.0)
-    println("Saldo: ${contaRonaldo.getSaldo()}")
+    println("Saldo: ${contaRonaldo.saldo}")
 
     println("Depositando na conta da Dani")
     contaDani.deposita(25.0)
-    println("Saldo: ${contaDani.getSaldo()}")
+    println("Saldo: ${contaDani.saldo}")
 
     println("Sacando na conta do Ronaldo")
     contaRonaldo.saca(45.0)
-    println("Saldo: ${contaRonaldo.getSaldo()}")
+    println("Saldo: ${contaRonaldo.saldo}")
 
     println("Sacando na conta da Dani")
     contaDani.saca(146.2)
-    println("Saldo: ${contaDani.getSaldo()}")
+    println("Saldo: ${contaDani.saldo}")
 
     println("Transferindo da conta da Dani para a conta do Ronaldo")
     if (contaDani.transfere(150.0, contaRonaldo)) {
@@ -44,18 +44,21 @@ fun main() {
     } else {
         println("Transferência não rolou")
     }
-    println("Saldo Dani: ${contaDani.getSaldo()}")
-    println("Saldo Ronaldo: ${contaRonaldo.getSaldo()}")
+    println("Saldo Dani: ${contaDani.saldo}")
+    println("Saldo Ronaldo: ${contaRonaldo.saldo}")
 
 }
 
 class Conta() {
     var titular = ""
     var numero = 0
-    private var saldo = 0.0
+    var saldo = 0.0
+        private set
 
     fun deposita(valor: Double) {
-        this.saldo += valor
+        if (valor > 0) {
+            this.saldo += valor
+        }
     }
 
     fun saca(valor: Double) {
@@ -73,15 +76,8 @@ class Conta() {
         return false
     }
 
-    fun getSaldo(): Double {
-        return this.saldo
-    }
 
-    fun setSaldo(valor: Double) {
-        if (valor > 0) {
-            this.saldo = valor
-        }
-    }
+
 }
 
 fun testaCopiasEReferencias() {
