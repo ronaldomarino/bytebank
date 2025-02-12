@@ -2,10 +2,10 @@ fun main() {
     println("Bem vindo ao ByteBank")
 
     var contaRonaldo = Conta(titular = "Ronaldo", numero = 1000)
-    contaRonaldo.deposita(360.0)
+    contaRonaldo.deposita(365.0)
 
     var contaDani = Conta(numero = 1001, titular = "Daniela")
-    contaDani.deposita(520.0)
+    contaDani.deposita(521.0)
 
     println(contaRonaldo.titular)
     println(contaRonaldo.numero)
